@@ -1,4 +1,4 @@
-# D-VDAMP & SURE Map
+# D-VDAMP & SUREMap
 
 This repository containts the code associated with the paper "D-VDAMP: Denoising-based Approximate Message Passing for Compressive MRI," ICASSP, 2021 by Christopher A. Metzler and Gordon Wetzstein and the paper "Suremap: Predicting Uncertainty in Cnn-Based Image Reconstructions Using Stein’s Unbiased Risk Estimate," ICASSP, 2021 by Ruangrawee Kitichotkul, Christopher A. Metzler, Frank Ong, and Gordon Wetzstein.
 
@@ -97,15 +97,15 @@ We provide `bash/preprocess.sh` and `bash/train.sh` as sample bash scripts to tr
 
 Note that the train set, validation set, and test set directories must be named as `train`, `val`, and `test` respectively. However, the images can have any names. The code expects .jpg images. Please modify the `generate_datasets` function in `train/preprocess` to read files of other extensions. Preprocessing will generate .h5 files in the data directory. When training, the `train/main.py` code expects `datadir` as path to the directory containing these .h5 files, i.e. the same path you use for preprocessing.
 
-## SURE Map
+## SUREMap
 
 ### Abstract
 
 Convolutional neural networks (CNN) have emerged as a powerful tool for solving computational imaging reconstruction problems. However, CNNs are generally difficult-to-understand black-boxes. Accordingly, it is challenging to know when they will work and, more importantly, when they will fail. This limitation is a major barrier to their use in safety-critical applications like medical imaging: Is that blob in the reconstruction an artifact or a tumor? In this work we use Stein’s unbiased risk estimate (SURE) to develop per-pixel confidence intervals, in the form of heatmaps, for compressive sensing reconstruction using the approximate message passing (AMP) framework with CNN-based denoisers. These heatmaps tell end-users how much to trust an image formed by a CNN, which could greatly improve the utility of CNNs in various computational imaging applications.
 
-### Problem setup and SURE Map
+### Problem setup and SUREMap
 
-SURE map calculates an unbiased risk estimate of the mean squared error (MSE) and then patch together square patches of estimates to form a heatmap. There are two variants of SURE heatmaps -- for D-AMP state evolution (additive white Gaussian noise) and D-VDAMP state evolution (colored noise where each wavelet subband has AWGN).
+SUREMap calculates an unbiased risk estimate of the mean squared error (MSE) and then patch together square patches of estimates to form a heatmap. There are two variants of SURE heatmaps -- for D-AMP state evolution (additive white Gaussian noise) and D-VDAMP state evolution (colored noise where each wavelet subband has AWGN).
 
 #### D-AMP state evolution
 
@@ -151,11 +151,11 @@ The code associated to D-VDAMP is in the following files.
   * `csalgo.py` contains D-AMP algorithm.
   * `denoiser.py` contains many denoiser wrappers for using with D-AMP.
   * `dvdamp.py` contains D-VDAMP algorithm.
-  * `heatmap.py` contains SURE map generation code.
+  * `heatmap.py` contains SUREMap generation code.
   * `simulation.py`: contains functions to simulate AWGN denoising, D-AMP reconstruction, VDAMP state evolution, and D-VDAMP reconstruction.
 * `experiment`
-  * `dvdamp_exp.py` contains a demo of D-VDAMP and SURE map for D-VDAMP.
-  * `sure_exp.py` contains a demo of AWGN denoising and D-AMP reconstruction and SURE map.
+  * `dvdamp_exp.py` contains a demo of D-VDAMP and SUREMap for D-VDAMP.
+  * `sure_exp.py` contains a demo of AWGN denoising and D-AMP reconstruction and SUREMap.
   * `vdamp_se_exp.py` contains a simulation of VDAMP state evolution by adding AWGN to each wavelet subband in the image, perform denoising, and then generate SURE map.
 * `util`
   * `cs.py` contains functions for compressive sensing simulation.
@@ -167,25 +167,25 @@ The code associated to D-VDAMP is in the following files.
 
 ### Demo
 
-Run AWGN denoising simulation and then perform SURE map:
+Run AWGN denoising simulation and then perform SUREMap:
 
 ```bash
 bash bash/den_exp.sh
 ```
 
-Run compressive sensing simulation and reconstruction with D-AMP and then perform SURE map:
+Run compressive sensing simulation and reconstruction with D-AMP and then perform SUREMap:
 
 ```bash
 bash bash/cs_exp.sh
 ```
 
-Run a VDAMP state evolution denoising simulation and then perform SURE map:
+Run a VDAMP state evolution denoising simulation and then perform SUREMap:
 
 ```bash
 bash bash/vdamp_se_exp.sh
 ```
 
-Run a MRI measurement simulation with variable-density sampling and reconstruction with D-VDAMP and then perform SURE map:
+Run a MRI measurement simulation with variable-density sampling and reconstruction with D-VDAMP and then perform SUREMap:
 
 ```bash
 bash bash/dvdamp_exp.sh
