@@ -1,0 +1,15 @@
+python experiment/dvdamp_exp.py \
+    --datadir data/mri \
+    --savedir result/dvdamp \
+    --modeldir models \
+    --samplingrate 0.125 \
+    --snr 40 \
+    --dentype cdncnn \
+    --iters 10 \
+    --stop_on_increase \
+    --savemode plot \
+    --windows 24 32 40 48 \
+    --stride 1 \
+    --numnoises 1 2 \
+    --errorlog \
+    --verbose

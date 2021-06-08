@@ -1,0 +1,13 @@
+python experiment/sure_exp.py cs \
+    --datadir data/natural \
+    --savedir result/cs \
+    --modeldir models \
+    --std 10 \
+    --samplingrate 0.1 \
+    --iters 10 \
+    --csmode matmul \
+    --savemode plot \
+    --windows 24 32 40 48 \
+    --stride 1 \
+    --numnoises 1 2 \
+    --errorlog
