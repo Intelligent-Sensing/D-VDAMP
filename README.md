@@ -1,4 +1,4 @@
-# D-VDAMP & SURE Map
+# D-VDAMP & SUREMap
 
 This repository containts the code associated with the paper "D-VDAMP: Denoising-based Approximate Message Passing for Compressive MRI," ICASSP, 2021 by Christopher A. Metzler and Gordon Wetzstein and the paper "Suremap: Predicting Uncertainty in Cnn-Based Image Reconstructions Using Stein’s Unbiased Risk Estimate," ICASSP, 2021 by Ruangrawee Kitichotkul, Christopher A. Metzler, Frank Ong, and Gordon Wetzstein.
 
